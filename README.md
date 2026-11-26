@@ -157,7 +157,7 @@ novashop/
 ### Các bước chạy dự án
 1. **Clone repository về máy:**
    ```bash
-   git clone https://github.com/khoaa0901021168zzzzz-ship-it/novashop.git
+   git clone https://github.com/khoa-sky/novashop.git
    cd novashop
    ```
 2. **Mở Solution:** Mở file `NovaShop.sln` bằng Visual Studio.
@@ -223,7 +223,7 @@ Trên kho GitHub này đã được tạo sẵn **6 nhánh chuẩn**:
 
 1. **Lần đầu tiên lấy dự án về máy:**
    ```bash
-   git clone https://github.com/khoaa0901021168zzzzz-ship-it/novashop.git
+   git clone https://github.com/khoa-sky/novashop.git
    cd novashop
 
    # Chuyển sang đúng nhánh được giao cho mình (ví dụ Thành viên 2):
