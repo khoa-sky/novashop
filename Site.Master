@@ -1,0 +1,41 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.Master.cs" Inherits="NovaShop.SiteMaster" %>
+<!DOCTYPE html>
+<html lang="vi">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%: Page.Title %> - NOVA.VN</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="<%: ResolveUrl("~/Assets/css/custom.css") %>" />
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server" />
+</head>
+<body class="min-h-screen flex flex-col bg-white text-neutral-900">
+    <form id="form1" runat="server" class="min-h-screen flex flex-col">
+        <!-- HEADER STICKY (PHỤ TRÁCH: TEAM LEAD) -->
+        <header class="sticky top-0 z-50 bg-white border-b border-neutral-200">
+            <div class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
+                <a href="<%: ResolveUrl("~/Default.aspx") %>" class="font-bold text-lg tracking-tight">NOVA.VN</a>
+                <nav class="hidden md:flex items-center space-x-6 text-xs uppercase font-medium">
+                    <a href="<%: ResolveUrl("~/Products.aspx?sale=1") %>" class="text-red-600">SALE</a>
+                    <a href="<%: ResolveUrl("~/Products.aspx") %>">SẢN PHẨM</a>
+                </nav>
+                <div class="flex items-center space-x-4 text-xs">
+                    <a href="<%: ResolveUrl("~/Login.aspx") %>">Đăng nhập</a>
+                    <a href="<%: ResolveUrl("~/Cart.aspx") %>">Giỏ hàng (0)</a>
+                </div>
+            </div>
+        </header>
+
+        <!-- MAIN CONTENT -->
+        <main class="flex-grow">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+        </main>
+
+        <!-- FOOTER -->
+        <footer class="bg-neutral-950 text-neutral-400 py-8 text-center text-xs mt-12">
+            <p>NOVA.VN - BTL Thiết kế Web ASP.NET Web Forms + EF6 + Tailwind CSS</p>
+        </footer>
+        <script src="<%: ResolveUrl("~/Assets/js/main.js") %>"></script>
+    </form>
+</body>
+</html>

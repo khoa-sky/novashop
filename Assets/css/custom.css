@@ -1,0 +1,32 @@
+/* Custom Utilities bổ sung cho Tailwind CSS (Phong cách NOVA.VN) */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: #171717;
+    background-color: #ffffff;
+}
+
+.font-editorial {
+    font-family: 'Playfair Display', Georgia, serif;
+}
+
+/* Hiệu ứng gạch chân tinh tế cho menu NOVA */
+.nav-link-nova {
+    position: relative;
+}
+.nav-link-nova::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 0;
+    height: 1.5px;
+    background-color: #111111;
+    transition: width 0.25s ease;
+}
+.nav-link-nova:hover::after {
+    width: 100%;
+}

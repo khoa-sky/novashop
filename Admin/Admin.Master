@@ -1,0 +1,31 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Admin.Master.cs" Inherits="NovaShop.Admin.AdminMaster" %>
+<!DOCTYPE html>
+<html lang="vi">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%: Page.Title %> - Quản trị NOVA.VN</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server" />
+</head>
+<body class="bg-neutral-100 text-neutral-900">
+    <form id="formAdmin" runat="server" class="min-h-screen flex">
+        <!-- SIDEBAR ADMIN -->
+        <aside class="w-64 bg-neutral-950 text-neutral-300 p-4 space-y-2">
+            <div class="text-white font-bold text-lg px-3 py-2 border-b border-neutral-800">NOVA Admin</div>
+            <nav class="space-y-1 text-sm pt-2">
+                <a href="<%: ResolveUrl("~/Admin/Default.aspx") %>" class="block px-3 py-2 rounded hover:bg-neutral-800">Tổng quan</a>
+                <a href="<%: ResolveUrl("~/Admin/Categories.aspx") %>" class="block px-3 py-2 rounded hover:bg-neutral-800">Danh mục</a>
+                <a href="<%: ResolveUrl("~/Admin/Products.aspx") %>" class="block px-3 py-2 rounded hover:bg-neutral-800">Sản phẩm</a>
+                <a href="<%: ResolveUrl("~/Admin/ProductVariants.aspx") %>" class="block px-3 py-2 rounded hover:bg-neutral-800">Biến thể Size/Màu</a>
+                <a href="<%: ResolveUrl("~/Admin/Orders.aspx") %>" class="block px-3 py-2 rounded hover:bg-neutral-800">Đơn hàng</a>
+            </nav>
+        </aside>
+
+        <!-- NỘI DUNG CHÍNH ADMIN -->
+        <main class="flex-1 p-6">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+        </main>
+    </form>
+</body>
+</html>
