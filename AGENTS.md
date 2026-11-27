@@ -33,4 +33,5 @@ Trước khi sửa bất kỳ file nào hoặc chạy lệnh `git commit`, AI Ag
 - **Thành viên 4 — Admin Panel & Dashboard Dev (Nhánh `feature/mem4-admin-panel`):**
   - Chỉ sửa: `Admin/Default.aspx(.cs)`, `Admin/Categories.aspx(.cs)`, `Admin/Products.aspx(.cs)`, `Admin/ProductVariants.aspx(.cs)`, `Admin/Orders.aspx(.cs)`.
 
-> **QUY TẮC VÀNG:** Các thành viên 2, 3, 4 **TUYỆT ĐỐI KHÔNG** tự ý sửa `NovaShop.csproj`, `Web.config`, `Models/*`, `Site.Master` hoặc `Admin/Admin.Master` để đảm bảo 0% xung đột (Merge Conflict) khi gộp nhánh vào `develop`.
+> **QUY TẮC VÀNG:** Các thành viên 2, 3, 4 **TUYỆT ĐỐI KHÔNG** tự ý sửa `NovaShop.csproj`, `Web.config`, `Models/*`, `Site.Master` hoặc `Admin/Admin.Master` để đảm bảo 0% xung đột (Merge Conflict) khi gộp nhánh vào `master`.
+

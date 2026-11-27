@@ -32,26 +32,22 @@ Trong dự án **ASP.NET Web Forms**, xung đột Git (Merge Conflict) kinh kh�
 
 ```mermaid
 flowchart TD
-    Main["Nhánh main\n(Code hoàn chỉnh để đi Bảo vệ)"]
-    Dev["Nhánh develop\n(Nhánh tích hợp chung của cả nhóm)"]
+    Master["Nhánh master\n(Nhánh trục chính - Tích hợp & Bảo vệ)"]
 
     B1["feature/lead-core-checkout\n(Thành viên 1 - Team Lead)"]
     B2["feature/mem2-storefront-catalog\n(Thành viên 2 - Trang chủ & Sản phẩm)"]
     B3["feature/mem3-auth-myorders\n(Thành viên 3 - Đăng nhập & Đơn của tôi)"]
     B4["feature/mem4-admin-panel\n(Thành viên 4 - Quản trị Admin)"]
 
-    Main -->|Team Lead khởi tạo Khung GĐ 4| Dev
-    Dev --> B1
-    Dev --> B2
-    Dev --> B3
-    Dev --> B4
+    Master -->|Tách nhánh| B1
+    Master -->|Tách nhánh| B2
+    Master -->|Tách nhánh| B3
+    Master -->|Tách nhánh| B4
 
-    B1 -->|Pull Request & Merge| Dev
-    B2 -->|Pull Request & Merge| Dev
-    B3 -->|Pull Request & Merge| Dev
-    B4 -->|Pull Request & Merge| Dev
-
-    Dev -->|Sau khi Test GĐ 7 không lỗi| Main
+    B1 -->|Merge / Pull Request| Master
+    B2 -->|Merge / Pull Request| Master
+    B3 -->|Merge / Pull Request| Master
+    B4 -->|Merge / Pull Request| Master
 ```
 
 ---
@@ -59,9 +55,8 @@ flowchart TD
 ## 4. Nội quy Làm việc với Git (Bắt buộc cả 4 người tuân thủ)
 
 ### Quy tắc 1: Cấu trúc Nhánh (Branches)
-1. **`main`**: Nhánh thiêng liêng, chỉ chứa code chạy ổn định 100% để mang đi báo cáo/bảo vệ. **Cấm push trực tiếp lên `main`.**
-2. **`develop`**: Nhánh ghép code chung của 4 anh em.
-3. **Nhánh cá nhân (`feature/...`)**: Mỗi thành viên làm việc trên nhánh riêng của mình:
+1. **`master`**: Nhánh trục chính của toàn dự án. Chỉ **Team Lead (Thành viên 1)** được quyền kiểm soát và Merge các nhánh con vào `master`.
+2. **4 Nhánh con (`feature/...`)**: Tách trực tiếp từ `master` và chạy dọc song song, mỗi thành viên làm việc trên nhánh riêng của mình:
    - Thành viên 1 (Lead): `feature/lead-core-checkout`
    - Thành viên 2: `feature/mem2-storefront-catalog`
    - Thành viên 3: `feature/mem3-auth-myorders`

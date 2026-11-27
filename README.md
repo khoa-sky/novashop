@@ -183,7 +183,7 @@ novashop/
 
 | Thành viên | Nhánh Git (`Branch`) | Tỷ trọng | Phụ trách Chức năng | Danh sách File ĐƯỢC PHÉP SỬA (File Ownership) |
 | :--- | :--- | :---: | :--- | :--- |
-| **Thành viên 1**<br>**Team Lead / Architect** | `feature/lead-core-checkout` | **~35-40%** | - Thiết kế CSDL, EF6 `Models/*`, `ShopDbContext`, `ShopDbInitializer` (Seed Data).<br>- Dựng khung `Site.Master` & `Admin/Admin.Master`.<br>- Xây dựng `CartService`, `OrderService` (EF6 Transaction).<br>- Trang Giỏ hàng (`Cart.aspx`) & Đặt hàng (`Checkout.aspx`).<br>- Quản lý nhánh `develop` & `main`, review PR. | - `Web.config`, `Global.asax(.cs)`, `NovaShop.csproj`<br>- `Database/InitShopDB.sql`<br>- Toàn bộ `Models/*`<br>- `Site.Master(.cs)`, `Admin/Admin.Master(.cs)`<br>- `Services/CartService.cs`, `Services/OrderService.cs`<br>- `Cart.aspx(.cs)`, `Checkout.aspx(.cs)` |
+| **Thành viên 1**<br>**Team Lead / Architect** | `feature/lead-core-checkout` | **~35-40%** | - Thiết kế CSDL, EF6 `Models/*`, `ShopDbContext`, `ShopDbInitializer` (Seed Data).<br>- Dựng khung `Site.Master` & `Admin/Admin.Master`.<br>- Xây dựng `CartService`, `OrderService` (EF6 Transaction).<br>- Trang Giỏ hàng (`Cart.aspx`) & Đặt hàng (`Checkout.aspx`).<br>- Quản lý nhánh `master`, review PR & Merge code của cả nhóm. | - `Web.config`, `Global.asax(.cs)`, `NovaShop.csproj`<br>- `Database/InitShopDB.sql`<br>- Toàn bộ `Models/*`<br>- `Site.Master(.cs)`, `Admin/Admin.Master(.cs)`<br>- `Services/CartService.cs`, `Services/OrderService.cs`<br>- `Cart.aspx(.cs)`, `Checkout.aspx(.cs)` |
 | **Thành viên 2**<br>**Storefront & Catalog Dev** | `feature/mem2-storefront-catalog` | **~20%** | - Trang chủ (`Default.aspx`): Hero banner, 3 banner chiến dịch, lưới sản phẩm nổi bật & mới.<br>- Danh sách sản phẩm (`Products.aspx`): Lọc theo danh mục, lọc đồ SALE, tìm kiếm từ khóa, sắp xếp giá & phân trang.<br>- Chi tiết sản phẩm (`ProductDetail.aspx`): Chọn Màu sắc & Size (`S/M/L/XL`), hiển thị tồn kho và thêm vào giỏ. | - `Services/CatalogService.cs`<br>- `Default.aspx`, `Default.aspx.cs`<br>- `Products.aspx`, `Products.aspx.cs`<br>- `ProductDetail.aspx`, `ProductDetail.aspx.cs`<br>- `Assets/css/custom.css`, `Assets/js/main.js` |
 | **Thành viên 3**<br>**Auth & Customer Portal Dev** | `feature/mem3-auth-myorders` | **~20%** | - Đăng ký (`Register.aspx`): Kiểm tra dữ liệu, chống trùng Email, băm mật khẩu `SHA-256`.<br>- Đăng nhập / Đăng xuất (`Login.aspx`): Xác thực EF6, lưu `Session["User"]`, điều hướng theo quyền.<br>- Đơn hàng của tôi (`MyOrders.aspx`): Xem danh sách & chi tiết đơn hàng đã đặt, chức năng **Hủy đơn hàng** (`Pending`) & hoàn tồn kho. | - `Services/AuthService.cs`<br>- `Login.aspx`, `Login.aspx.cs`<br>- `Register.aspx`, `Register.aspx.cs`<br>- `MyOrders.aspx`, `MyOrders.aspx.cs` |
 | **Thành viên 4**<br>**Admin Panel & Dashboard Dev** | `feature/mem4-admin-panel` | **~20%** | - Dashboard thống kê (`Admin/Default.aspx`): Tổng doanh thu, số đơn, cảnh báo sắp hết hàng.<br>- CRUD Danh mục (`Admin/Categories.aspx`).<br>- CRUD Sản phẩm & Upload ảnh (`Admin/Products.aspx`).<br>- Quản lý Biến thể Size/Màu/Tồn kho (`Admin/ProductVariants.aspx`).<br>- Quản lý & Duyệt trạng thái Đơn hàng (`Admin/Orders.aspx`). | - `Admin/Default.aspx(.cs)`<br>- `Admin/Categories.aspx(.cs)`<br>- `Admin/Products.aspx(.cs)`<br>- `Admin/ProductVariants.aspx(.cs)`<br>- `Admin/Orders.aspx(.cs)` |
@@ -196,28 +196,30 @@ novashop/
 
 ```mermaid
 flowchart TD
-    Main["main (Nhánh ổn định để nộp bài & bảo vệ)"]
-    Dev["develop (Nhánh tích hợp chung của 4 thành viên)"]
+    Master["master (Nhánh chính trục dọc - Code chuẩn để tích hợp & bảo vệ)"]
 
     B1["feature/lead-core-checkout (Thành viên 1 - Team Lead)"]
     B2["feature/mem2-storefront-catalog (Thành viên 2 - Storefront & Catalog)"]
     B3["feature/mem3-auth-myorders (Thành viên 3 - Auth & MyOrders)"]
     B4["feature/mem4-admin-panel (Thành viên 4 - Admin Panel)"]
 
-    Main --> Dev
-    Dev --> B1
-    Dev --> B2
-    Dev --> B3
-    Dev --> B4
+    Master -->|Tách nhánh| B1
+    Master -->|Tách nhánh| B2
+    Master -->|Tách nhánh| B3
+    Master -->|Tách nhánh| B4
+
+    B1 -->|Merge / Pull Request| Master
+    B2 -->|Merge / Pull Request| Master
+    B3 -->|Merge / Pull Request| Master
+    B4 -->|Merge / Pull Request| Master
 ```
 
-Trên kho GitHub này đã được tạo sẵn **6 nhánh chuẩn**:
-- `main`: Nhánh chính chứa phiên bản ổn định để báo cáo/bảo vệ.
-- `develop`: Nhánh tích hợp code chung của cả nhóm.
-- `feature/lead-core-checkout`: Nhánh làm việc của **Thành viên 1 (Team Lead)**.
-- `feature/mem2-storefront-catalog`: Nhánh làm việc của **Thành viên 2**.
-- `feature/mem3-auth-myorders`: Nhánh làm việc của **Thành viên 3**.
-- `feature/mem4-admin-panel`: Nhánh làm việc của **Thành viên 4**.
+Trên kho GitHub này đã được tạo sẵn **1 nhánh chính `master` và 4 nhánh con (`feature/*`) chạy dọc**:
+- `master`: Nhánh trục chính của dự án (Team Lead kiểm soát và duyệt Merge từ các nhánh con vào `master`).
+- `feature/lead-core-checkout`: Nhánh con của **Thành viên 1 (Team Lead)**.
+- `feature/mem2-storefront-catalog`: Nhánh con của **Thành viên 2**.
+- `feature/mem3-auth-myorders`: Nhánh con của **Thành viên 3**.
+- `feature/mem4-admin-panel`: Nhánh con của **Thành viên 4**.
 
 ### B. Các lệnh Git dành cho từng Thành viên khi bắt đầu làm việc
 
@@ -226,26 +228,26 @@ Trên kho GitHub này đã được tạo sẵn **6 nhánh chuẩn**:
    git clone https://github.com/khoa-sky/novashop.git
    cd novashop
 
-   # Chuyển sang đúng nhánh được giao cho mình (ví dụ Thành viên 2):
+   # Chuyển sang đúng nhánh con của mình (ví dụ Thành viên 2):
    git checkout feature/mem2-storefront-catalog
    ```
 
 2. **Quy trình 5 bước mỗi ngày khi code:**
    ```bash
-   # Bước 1: Luôn kéo code mới nhất từ nhánh develop về trước khi code
-   git pull origin develop
+   # Bước 1: Luôn kéo code mới nhất từ nhánh chính master về trước khi code
+   git pull origin master
 
    # Bước 2: Mở Visual Studio, chỉ sửa trong các file được phân công và Build thử (Ctrl + Shift + B)
 
    # Bước 3: Kiểm tra các file đã thay đổi
    git status
 
-   # Bước 4: Add đúng các file của mình, commit và push lên nhánh cá nhân
+   # Bước 4: Add đúng các file của mình, commit và push lên nhánh con cá nhân
    git add .
    git commit -m "feat(module): mo ta ngan gon cong viec vua hoan thanh"
    git push origin <tên-nhánh-của-bạn>
 
-   # Bước 5: Lên GitHub tạo Pull Request (PR) từ nhánh cá nhân vào nhánh develop để Team Lead review & merge
+   # Bước 5: Tạo Pull Request (PR) vào nhánh master (hoặc báo Team Lead kiểm tra & Merge vào master trên Git Fork)
    ```
 
 ---

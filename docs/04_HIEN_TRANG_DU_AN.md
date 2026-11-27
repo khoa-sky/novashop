@@ -123,3 +123,4 @@ Dưới đây là bảng chi tiết hiện trạng và công việc cụ thể t
 3. **Bước tiếp theo ngay bây giờ:**
    - 4 thành viên clone kho [https://github.com/khoa-sky/novashop](https://github.com/khoa-sky/novashop) về máy.
    - Mỗi người `git checkout` sang đúng nhánh `feature/...` của mình và hoàn thiện giao diện `.aspx` + gọi hàm Service trong `.aspx.cs` theo đúng bảng ở **Mục 3** trên đây.
+

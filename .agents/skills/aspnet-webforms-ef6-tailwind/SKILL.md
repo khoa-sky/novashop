@@ -93,3 +93,4 @@ Use these `[NotMapped]` helper properties directly in `.aspx` data-binding expre
   - `<%# Eval("LineTotal", "{0:N0}₫") %>`: `UnitPrice * Quantity`.
 - **`Order`**:
   - `<%# Eval("StatusVietnamese") %>`: Vietnamese status label (*Chờ xử lý*, *Đang giao hàng*, *Hoàn thành*, *Đã hủy*).
+
