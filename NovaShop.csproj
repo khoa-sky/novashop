@@ -82,6 +82,12 @@
     <Content Include="Admin\ProductVariants.aspx" />
     <Content Include="Admin\Orders.aspx" />
     <Content Include="Web.config" />
+    <None Include="README.md" />
+    <None Include="AGENTS.md" />
+    <None Include="docs\01_TONG_QUAN_DU_AN.md" />
+    <None Include="docs\02_CAC_GIAI_DOAN_DU_AN.md" />
+    <None Include="docs\03_PHAN_CONG_VA_QUY_TAC_GIT.md" />
+    <None Include="docs\04_HIEN_TRANG_DU_AN.md" />
     <None Include="packages.config" />
     <None Include="Database\InitShopDB.sql" />
   </ItemGroup>
