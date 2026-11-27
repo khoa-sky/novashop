@@ -256,3 +256,4 @@ Toàn bộ tài liệu phục vụ phát triển và viết Báo cáo Word BTL n
 - 📄 [**`docs/01_TONG_QUAN_DU_AN.md`**](./docs/01_TONG_QUAN_DU_AN.md): Phân tích yêu cầu, ma trận chức năng MVP vs. Mở rộng, sơ đồ Use Case, sơ đồ ERD 3NF và định hướng giao diện Tailwind CSS.
 - 📄 [**`docs/02_CAC_GIAI_DOAN_DU_AN.md`**](./docs/02_CAC_GIAI_DOAN_DU_AN.md): Lộ trình 8 giai đoạn triển khai dự án từ phân tích, thiết kế CSDL, code song song đến kiểm thử tích hợp và bảo vệ.
 - 📄 [**`docs/03_PHAN_CONG_VA_QUY_TAC_GIT.md`**](./docs/03_PHAN_CONG_VA_QUY_TAC_GIT.md): Bảng phân công chi tiết 4 người, quy định File Ownership, quy tắc Git chống conflict và Coding Conventions.
+- 📊 [**`docs/04_HIEN_TRANG_DU_AN.md`**](./docs/04_HIEN_TRANG_DU_AN.md): Báo cáo hiện trạng dự án chi tiết (những gì đã hoàn thành 100% ở tầng Models/Services và danh sách việc cần code tiếp ở từng file `.aspx` cho 4 thành viên).
